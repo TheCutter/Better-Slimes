@@ -12,13 +12,9 @@ public class RenderSlime extends RenderLiving<EntityBetterSlime> {
 	String modID;
 	String name;
 	
-	
-	
 	public final String TEXTURES = ":textures/entity/slime/";
 
-	public RenderSlime(String modId, String name, RenderManager manager) 
-	{
-		
+	public RenderSlime(String modId, String name, RenderManager manager) {
 		super(manager, new ModelSlime(16), 0.25F);
         this.addLayer(new LayerSlimeGel(this));
 		this.modID = modId;	
@@ -31,13 +27,11 @@ public class RenderSlime extends RenderLiving<EntityBetterSlime> {
 	}
 
 	@Override
-	protected void applyRotations(EntityBetterSlime entityLiving, float p_77043_2_, float rotationYaw, float partialTicks)
-	{
+	protected void applyRotations(EntityBetterSlime entityLiving, float p_77043_2_, float rotationYaw, float partialTicks) {
 		super.applyRotations(entityLiving, p_77043_2_, rotationYaw, partialTicks);
 	}
 	
-	public void doRender(EntityBetterSlime entity, double x, double y, double z, float entityYaw, float partialTicks)
-    {
+	public void doRender(EntityBetterSlime entity, double x, double y, double z, float entityYaw, float partialTicks) {
         this.shadowSize = 0.25F * (float)entity.getSlimeSize();
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
@@ -45,8 +39,7 @@ public class RenderSlime extends RenderLiving<EntityBetterSlime> {
     /**
      * Allows the render to do state modifications necessary before the model is rendered.
      */
-    protected void preRenderCallback(EntityBetterSlime entitylivingbaseIn, float partialTickTime)
-    {
+    protected void preRenderCallback(EntityBetterSlime entitylivingbaseIn, float partialTickTime) {
         float f = 0.999F;
         GlStateManager.scale(0.999F, 0.999F, 0.999F);
         float f1 = (float)entitylivingbaseIn.getSlimeSize();

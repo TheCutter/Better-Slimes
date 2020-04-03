@@ -4,7 +4,6 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.entity.monster.EntitySlime;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -13,13 +12,11 @@ public class LayerSlimeGel implements LayerRenderer<EntityBetterSlime>{
 	private final RenderSlime slimeRenderer;
     private final ModelBase slimeModel = new ModelSlime(0);
 
-    public LayerSlimeGel(RenderSlime slimeRendererIn)
-    {
+    public LayerSlimeGel(RenderSlime slimeRendererIn) {
         this.slimeRenderer = slimeRendererIn;
     }
 
-    public void doRenderLayer(EntityBetterSlime entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
-    {
+    public void doRenderLayer(EntityBetterSlime entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         if (!entitylivingbaseIn.isInvisible())
         {
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
@@ -37,7 +34,4 @@ public class LayerSlimeGel implements LayerRenderer<EntityBetterSlime>{
     {
         return true;
     }
-
-
-
 }

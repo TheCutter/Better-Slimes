@@ -13,7 +13,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
-public class SandSlime extends EntityBetterSlime implements ISpecialSlime{
+public class SandSlime extends EntityBetterSlime implements ISpecialSlime {
 
 	public SandSlime(World worldIn) {
 		super(worldIn);
@@ -38,16 +38,13 @@ public class SandSlime extends EntityBetterSlime implements ISpecialSlime{
 	}
 	
 	@Override
-	protected void applyEntityAttributes() 
-	{
+	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25.0D);
 	}
 	
 	@Nullable
-    protected ResourceLocation getLootTable()
-    {
+    protected ResourceLocation getLootTable() {
         return this.getSlimeSize() == 1 ? BetterSlimes.sandSlimeLT : LootTableList.EMPTY;
     }
-
 }

@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
+import MICDeps.util.handlers.ConfigHandler;
 import org.apache.logging.log4j.Logger;
 
 import com.mic.betterslimes.items.ModItems;
@@ -33,6 +34,7 @@ public class ModBase {
 
 	public static ItemBuilder itemBuilder;
 	public static ModItems items;
+	public static ConfigHandler configHandler;
 	
 	private static Logger logger;
 
@@ -47,31 +49,15 @@ public class ModBase {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		
-		
 		logger = event.getModLog();
 		eventHandler = new RegistryHandler();
 		MinecraftForge.EVENT_BUS.register(eventHandler);
 		MinecraftForge.EVENT_BUS.register(itemBuilder);
-		eventHandler.preInitRegistries(event);
 		proxy.preInit(event);
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		eventHandler.initRegistries();
 		proxy.init(event);
 	}
-
-	@EventHandler
-	public static void PostInit(FMLPostInitializationEvent event) {
-
-	}
-
-	@EventHandler
-	public static void serverInit(FMLServerStartingEvent event) {
-		RegistryHandler.serverRegistries(event);
-	}
-	
-	
 }

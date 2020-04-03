@@ -8,11 +8,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ConfigHandler {
 	public static Configuration config;
-	public static boolean startupMessage = true;
 	private static ModBase mod;
 	private static String modID;
-	
-	
+
 	public static int blueSlime = 14;
 	public static int redSlime = 7;
 	public static int yellowSlime = 4;
@@ -22,7 +20,6 @@ public class ConfigHandler {
 	public static int jungleSlime = 20;
 	public static int sandSlime = 20;
 	public static int skySlime = 12;
-	public static int kingChance = 5;
 	public static int ironSlime = 40;
 	public static int goldSlime = 20;
 	public static int knightSlime = 6;
@@ -41,14 +38,9 @@ public class ConfigHandler {
 
 		// Drop chances
 		category = "Better Slimes Config";
-
-		startupMessage = config.getBoolean("Start-Up Message?", category, true, "Give a start-up thank you?");
-		kingChance = config.getInt("King Slime Spawn Chance", category, 5, 0, 100, "0 for never and 100 for every night.");
 		splitChance = config.getInt("Slime Splitting Chance", category, 50, 0, 100, "0 for never and 100 for always.");
 
-		
 		category = "Slime Spawn Chances";
-		
 		blueSlime = config.getInt("Blue Slime Spawn Chance", category, 14, 0, 100, "0 for never and 100 for always.");
 		redSlime = config.getInt("Red Slime Spawn Chance", category, 7, 0, 100, "0 for never and 100 for always.");
 		yellowSlime = config.getInt("Yellow Slime Spawn Chance", category, 4, 0, 100, "0 for never and 100 for always.");
@@ -62,9 +54,7 @@ public class ConfigHandler {
 		goldSlime = config.getInt("Gold Slime Spawn Chance", category, 20, 0, 100, "0 for never and 100 for always.");
 		knightSlime = config.getInt("Knight Slime Spawn Chance", category, 6, 0, 100, "0 for never and 100 for always.");
 
-		
 		config.save();
-
 	}
 
 	public static void registerConfig(FMLPreInitializationEvent event) {

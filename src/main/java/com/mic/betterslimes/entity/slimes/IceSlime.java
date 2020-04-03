@@ -41,21 +41,17 @@ public class IceSlime extends EntityBetterSlime implements ISpecialSlime{
 	
 	@Override
 	protected EnumParticleTypes getParticleType() {
-		
 		return EnumParticleTypes.SNOWBALL;
 	}
 	
 	@Override
-	protected void applyEntityAttributes() 
-	{
+	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
 	}
 	
 	@Nullable
-    protected ResourceLocation getLootTable()
-    {
+    protected ResourceLocation getLootTable() {
         return this.getSlimeSize() == 1 ? BetterSlimes.iceSlimeLT : LootTableList.EMPTY;
     }
-
 }

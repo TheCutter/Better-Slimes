@@ -11,7 +11,6 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
@@ -29,24 +28,7 @@ public class SpectralSlime extends EntityBetterSlime implements ISpecialSlime{
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-
-		if (this.world.getWorldInfo().getTerrainType().handleSlimeSpawnReduction(rand, world)) {
-			return false;
-		} else {
-			if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
-
-				return true;
-
-			}
-
-			return false;
-		}
-	}
-	
-	@Override
 	protected EnumParticleTypes getParticleType() {
-		
 		return EnumParticleTypes.DRAGON_BREATH;
 	}
 
@@ -70,5 +52,4 @@ public class SpectralSlime extends EntityBetterSlime implements ISpecialSlime{
 	protected ResourceLocation getLootTable() {
 		return this.getSlimeSize() == 1 ? BetterSlimes.skySlimeLT : LootTableList.EMPTY;
 	}
-
 }
